@@ -15,5 +15,9 @@ namespace Persistence
         }
 
         public DbSet<Pet> Pets {get; set;}
+        public DbSet<historicalVisit> historicalVisits { get; set; }
+        public DbSet<Vaccin> Vaccins { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }

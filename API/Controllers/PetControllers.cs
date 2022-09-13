@@ -1,31 +1,42 @@
+using Application.Pets;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
+
 
 namespace API.Controllers
 {
     public class PetControllers : BaseApiController
     {
-        private readonly DataContext _context;
-        public PetControllers(DataContext context)
-        {
-            _context = context;
-        }
+       
 
         [HttpGet]
 
         public async Task<ActionResult<List<Pet>>> GetPets()
         {
-            return await _context.Pets.ToListAsync();
+            return await Mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")] 
 
         public async Task<ActionResult<Pet>> GetPets(Guid id)
         {
-            return await _context.Pets.FindAsync(id);
+            return await Mediator.Send(new Details.Query{Id = id});
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePet(Pet pet)
+        {
+            return Ok(await Mediator.Send(new Create.Command { Pet = pet}));
+        }
+
+        [HttpPut("{id}")]
+        
+        public async Task<IActionResult> EditPet(Guid id, Pet pet)
+        {
+            pet.Id = id;
+            return Ok(await Mediator.Send(new Edit.Command{Pet = pet}));
+        }
+
 
     }
 }

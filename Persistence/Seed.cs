@@ -18,7 +18,19 @@ namespace Persistence
                     {
                         Name = "Falcor",
                         Age = 5,
-                        DateOfBirth = DateTime.Now
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-1825)
+                    },
+                    new Pet
+                    {
+                        Name = "Bouboule",
+                        Age = 7,
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-2555)
+                    },
+                    new Pet
+                    {
+                        Name = "Wayne",
+                        Age = 8,
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-2920)
                     }
                 };
                 await context.Pets.AddRangeAsync(pets);
@@ -31,8 +43,18 @@ namespace Persistence
                 {
                     new Vaccin
                     {
-                        LastDate = DateTime.Now,
-                        NextDate =DateTime.Now
+                        LastDate =  DateTime.UtcNow.AddDays(-365),
+                        NextDate = DateTime.UtcNow.AddDays(18)
+                    },
+                    new Vaccin
+                    {
+                        LastDate =  DateTime.UtcNow.AddDays(-380),
+                        NextDate =  DateTime.UtcNow.AddDays(5) 
+                    },
+                    new Vaccin
+                    {
+                        LastDate =  DateTime.UtcNow.AddDays(-400),
+                        NextDate =  DateTime.UtcNow.AddDays(12)
                     }
                 };
                 await context.Vaccins.AddRangeAsync(vaccins);
@@ -46,6 +68,18 @@ namespace Persistence
                     new historicalVisit
                     {
                         LastVisit = DateTime.UtcNow.AddDays(-75),
+                        NextVisit =  DateTime.UtcNow.AddDays(45)
+                        
+                    },
+                    new historicalVisit
+                    {
+                        LastVisit = DateTime.UtcNow.AddDays(-80),
+                        NextVisit =  DateTime.UtcNow.AddDays(45)
+                        
+                    },
+                    new historicalVisit
+                    {
+                        LastVisit = DateTime.UtcNow.AddDays(-30),
                         NextVisit =  DateTime.UtcNow.AddDays(45)
                         
                     }

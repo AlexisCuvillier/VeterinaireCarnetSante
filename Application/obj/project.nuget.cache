@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/4PjDySfwj9cGXc566K0E8OCfItY+Al0TTE4437pUnJLvDy84M5HntlR4XPCYjkdROdzO5filvPG1o9Q3P3Cvw==",
+  "dgSpecHash": "JT3Ki3Y9fk8SgN9ybiiRauTU/W6/2pPwnM+pfMYgUaYVgca8SEDreCkAznAA+UedrDmx8nvAchmor/MpFkrogw==",
   "success": true,
   "projectFilePath": "C:\\Users\\alexi\\OneDrive\\Documents\\Formation\\Vétérinaire\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\alexi\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\alexi\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\alexi\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.8\\microsoft.data.sqlite.core.6.0.8.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.8\\microsoft.entityframeworkcore.6.0.8.nupkg.sha512",
     "C:\\Users\\alexi\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.8\\microsoft.entityframeworkcore.abstractions.6.0.8.nupkg.sha512",

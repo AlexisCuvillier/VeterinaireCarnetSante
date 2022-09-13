@@ -1,0 +1,67 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color:rgb(236, 231, 231);
+  overflow: hidden;
+  width: 100%;
+  height: 102px;
+  left: 0px;
+  top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the links inside the navigation bar */
+.flexNav a {
+  margin-right: 65px;
+  padding: 20px;
+  color: #030303;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #04aa6d;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  border-radius: 20px;
+  color: white;
+}
+
+.img-Background {
+  background-image: url("../../../public/Images/backgroundImg.jpg");
+  width: 100%;
+  height: 1335px;
+}
+
+.adresse {
+  width: 100%;
+  height: 110px;
+  background-color:#4F4D4D ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.localisationLogo {
+  margin-right: 10px;
+}
+
+.adresse p {
+  font-size: 16px;
+  font-style: italic;
+  color: aliceblue;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+p a {
+  color: white;
+}

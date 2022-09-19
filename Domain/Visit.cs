@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class historicalVisit
+    public class Visit
     {
         public Guid Id { get; set; }
         public DateTime LastVisit { get; set; }

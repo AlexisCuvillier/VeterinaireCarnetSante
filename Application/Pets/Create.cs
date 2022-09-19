@@ -23,7 +23,7 @@ namespace Application.Pets
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                 _context.Pets.AddAsync(request.Pet);
+                await  _context.Pets.AddAsync(request.Pet);
 
                  await _context.SaveChangesAsync();
 

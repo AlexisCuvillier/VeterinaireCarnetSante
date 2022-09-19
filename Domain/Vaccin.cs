@@ -8,8 +8,11 @@ namespace Domain
     public class Vaccin
     {
         public Guid Id { get; set; }
-        public DateTime LastDate { get; set; }
-        public DateTime NextDate { get; set; }
+
+        public string Name {get; set; }
+        
+      
+
 
     }
 }

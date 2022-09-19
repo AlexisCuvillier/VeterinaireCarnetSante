@@ -6,13 +6,13 @@ export default function Accueil() {
     <div>
       <div class="topnav">
         <div className="flexNav">
-          <a class="active" href="#home">
+          <a href="#home">
           Home
         </a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
-        <a href="login">Login / Sign in</a>
+        <a href="#login">Login / Sign in</a>
         </div>
         
       </div>

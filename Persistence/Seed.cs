@@ -3,13 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace Persistence
 {
     public class Seed
     {
-        public static async Task SeedData(DataContext context)
+        public static async Task SeedData(DataContext context, UserManager<AppUser> userManager)
         {
+            if(!userManager.Users.Any())
+            {
+                var users = new List<AppUser> 
+                {
+                    new AppUser{DisplayName = "Bob", UserName = "bob", Email="bob@test.com"},
+                    new AppUser{DisplayName = "Andy", UserName = "andy", Email="tom@test.com"},
+                    new AppUser{DisplayName = "Jhon", UserName = "jhon", Email="jin@test.com"},
+                };
+
+                foreach(var user in users)
+                {
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                }
+            }
             if (context.Pets.Any()) return;
             {
                 var pets = new List<Pet>
@@ -18,19 +33,22 @@ namespace Persistence
                     {
                         Name = "Falcor",
                         Age = 5,
-                        DateOfBirth =  DateTime.UtcNow.AddDays(-1825)
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-1825),
+                        NextDateVaccin = DateTime.UtcNow.AddDays(3)
                     },
                     new Pet
                     {
                         Name = "Bouboule",
                         Age = 7,
-                        DateOfBirth =  DateTime.UtcNow.AddDays(-2555)
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-2555),
+                        NextDateVaccin = DateTime.UtcNow.AddDays(24)
                     },
                     new Pet
                     {
                         Name = "Wayne",
                         Age = 8,
-                        DateOfBirth =  DateTime.UtcNow.AddDays(-2920)
+                        DateOfBirth =  DateTime.UtcNow.AddDays(-2920),
+                        NextDateVaccin = DateTime.UtcNow.AddDays(12)
                     }
                 };
                 await context.Pets.AddRangeAsync(pets);
@@ -43,50 +61,80 @@ namespace Persistence
                 {
                     new Vaccin
                     {
-                        LastDate =  DateTime.UtcNow.AddDays(-365),
-                        NextDate = DateTime.UtcNow.AddDays(18)
+                       Name = "CHLRP"
                     },
                     new Vaccin
                     {
-                        LastDate =  DateTime.UtcNow.AddDays(-380),
-                        NextDate =  DateTime.UtcNow.AddDays(5) 
+                        Name = "Parvovirose"
                     },
                     new Vaccin
                     {
-                        LastDate =  DateTime.UtcNow.AddDays(-400),
-                        NextDate =  DateTime.UtcNow.AddDays(12)
-                    }
+                         Name = "Hépatite Canine"
+                    },
+                    new Vaccin
+                    {
+                        Name = "Leptospirose"
+                    },
+                    new Vaccin
+                    {
+                        Name = "Rage "
+                    },
                 };
                 await context.Vaccins.AddRangeAsync(vaccins);
                 await context.SaveChangesAsync();
             }
 
-            if(context.historicalVisits.Any()) return;
+            if(context.Visits.Any()) return;
             {
-                var historicalVisits = new List<historicalVisit>
+                var historicalVisits = new List<Visit>
                 {
-                    new historicalVisit
+                    new Visit
                     {
                         LastVisit = DateTime.UtcNow.AddDays(-75),
                         NextVisit =  DateTime.UtcNow.AddDays(45)
                         
                     },
-                    new historicalVisit
+                    new Visit
                     {
                         LastVisit = DateTime.UtcNow.AddDays(-80),
                         NextVisit =  DateTime.UtcNow.AddDays(45)
                         
                     },
-                    new historicalVisit
+                    new Visit
                     {
                         LastVisit = DateTime.UtcNow.AddDays(-30),
                         NextVisit =  DateTime.UtcNow.AddDays(45)
                         
                     }
                 };
-                await context.historicalVisits.AddRangeAsync(historicalVisits);
+                await context.Visits.AddRangeAsync(historicalVisits);
                 await context.SaveChangesAsync();
             }
+
+            if(!context.Masters.Any())
+            {
+                var masters = new List<Master>
+                {
+                    new Master 
+                    {
+                        NamePrename = "Bob LeBricoleur",
+                        Adress = "1 Rue de la poupee qui tousse",
+                        Mail = "bob@test.com"
+                    },
+                    new Master 
+                    {
+                        NamePrename = "Andy Cape",
+                        Adress = "3 Rue de la poupee qui tousse",
+                        Mail = "andy@test.com"
+                    },new Master 
+                    {
+                        NamePrename = "Jhon Doe",
+                        Adress = "1 Rue de la poupee qui tousse",
+                        Mail = "jhon@test.com"
+                    },
+                };
+            }
+
         }
     }
 }

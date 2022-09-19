@@ -1,5 +1,6 @@
 using Application.Pets;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -16,9 +17,10 @@ namespace API.Controllers
             return await Mediator.Send(new List.Query());
         }
 
+      
         [HttpGet("{id}")] 
 
-        public async Task<ActionResult<Pet>> GetPets(Guid id)
+        public async Task<ActionResult<Pet>> GetPetsID(Guid id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         }

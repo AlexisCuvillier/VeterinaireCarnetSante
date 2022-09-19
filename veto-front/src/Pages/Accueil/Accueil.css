@@ -1,3 +1,5 @@
+
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color:rgb(236, 231, 231);
@@ -24,15 +26,8 @@
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #04aa6d;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   border-radius: 20px;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #04aa6d;
-  border-radius: 20px;
-  color: white;
 }
 
 .img-Background {
